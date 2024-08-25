@@ -10,7 +10,8 @@ const serviceRoute = require("./router/service-router");
 const adminRoute = require("./router/admin-router");
 
 const corsOptions = {
-    origin :"http://localhost:5173",
+    // origin :"http://localhost:5173",
+    origin :"https://deploy-mern-1hwq.vercel.app",
     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials:true,
 }
