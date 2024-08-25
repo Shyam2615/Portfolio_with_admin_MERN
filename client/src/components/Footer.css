@@ -1,0 +1,11 @@
+.foot{
+    height: 100px;
+    width: 100%;
+    background-color: #646cff;
+    color: white;
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-top: 6.8rem;
+}
