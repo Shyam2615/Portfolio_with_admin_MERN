@@ -11,7 +11,7 @@ const adminRoute = require("./router/admin-router");
 
 const corsOptions = {
     // origin :"http://localhost:5173",
-    origin :"https://portfolio-api-gilt.vercel.app",
+    origin :"https://portfolio-client-kohl.vercel.app/",
     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials:true,
 }
