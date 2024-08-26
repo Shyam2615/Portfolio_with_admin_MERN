@@ -14,10 +14,17 @@ const corsOptions = {
     origin :"*",
     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials:true,
-    allowedHeaders: ["Content-Type", "Authorization"],
+    allowedHeaders: ["Content-Type", "Authorization"],x
 }
 
 app.options('*', cors(corsOptions));
+app.use('/api/data/service', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    next();
+}, serviceRoute);
+
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/api/auth", authroute); 
