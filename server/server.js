@@ -9,23 +9,29 @@ const errorMiddleware = require("./middlewares/error-middleware");
 const serviceRoute = require("./router/service-router");
 const adminRoute = require("./router/admin-router");
 
-const corsOptions = {
-    // origin :"http://localhost:5173",
-    origin :"*",
+// const corsOptions = {
+//     // origin :"http://localhost:5173",
+//     origin :"*",
+//     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
+//     credentials:true,
+//     allowedHeaders: ["Content-Type", "Authorization"],x
+// }
+
+app.use(cors({
+    origin: '*',
     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials:true,
-    allowedHeaders: ["Content-Type", "Authorization"],x
-}
+    allowedHeaders: 'Content-Type,Authorization'
+}))
+// app.options('*', cors(corsOptions));
+// app.use('/api/data/service', (req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS");
+//     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+//     next();
+// }, serviceRoute);
 
-app.options('*', cors(corsOptions));
-app.use('/api/data/service', (req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS");
-    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    next();
-}, serviceRoute);
-
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/api/auth", authroute); 
 app.use("/api/form",contactRoute);
